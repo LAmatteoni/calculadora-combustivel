@@ -1,6 +1,5 @@
 import type { Metadata } from 'next';
 import { IBM_Plex_Mono, Manrope } from 'next/font/google';
-import Script from 'next/script';
 import { ToastProvider } from '@/components/layout/ToastProvider';
 import { ADSENSE_CLIENT } from '@/lib/ads';
 import './globals.css';
@@ -28,13 +27,14 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="pt-BR" className={`${manrope.variable} ${plexMono.variable}`}>
-      <body>
-        <Script
+      <head>
+        <script
           async
           src={`https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADSENSE_CLIENT}`}
           crossOrigin="anonymous"
-          strategy="afterInteractive"
         />
+      </head>
+      <body>
         <ToastProvider>{children}</ToastProvider>
       </body>
     </html>
