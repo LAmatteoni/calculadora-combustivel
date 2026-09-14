@@ -37,7 +37,9 @@ body {
 }
 
 .wrap {
-  max-width: 700px;
+  width: 100%;
+  min-width: 0;
+  max-width: 710px;
   margin: 0 auto;
   padding: 28px 18px 60px;
 }
@@ -117,9 +119,9 @@ body {
 }
 .tabs {
   display: flex;
+  justify-content: space-around;
   gap: 6px;
-  width: max-content;
-  min-width: 100%;
+  width: 100%;
 }
 .tab {
   appearance: none;
@@ -133,15 +135,21 @@ body {
   border-radius: calc(var(--radius) - 4px);
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
+  text-align: center;
+  overflow-wrap: break-word;
+  -webkit-hyphens: auto;
+  hyphens: auto;
   gap: 5px;
   cursor: pointer;
-  flex: none;
+  flex: 1;
+  min-width: 0;
   transition: background 0.15s ease, color 0.15s ease;
 }
 .tab svg {
   width: 18px;
   height: 18px;
+  margin: 0 auto;
   stroke: currentColor;
 }
 .tab:hover {
